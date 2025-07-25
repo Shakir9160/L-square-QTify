@@ -1,6 +1,5 @@
 import { CircularProgress } from "@mui/material";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
 import Filters from "../Filters/Filters";
@@ -24,7 +23,7 @@ export default function Section({ title, data, filterSource, type }) {
   };
 
   useEffect(() => {
-    if (filterSource) {
+    if (filterSource && filters.length === 1) {
       filterSource().then((response) => {
         const { data } = response;
         setFilters([...filters, ...data]);
@@ -38,7 +37,7 @@ export default function Section({ title, data, filterSource, type }) {
         <h3>{title}</h3>
 
         <h4 className={styles.toggleText} onClick={handleToggle}>
-          {!carouselToggle ? "Collapse" : "Show all"}
+          {carouselToggle ? "Show all" : "Collapse"}
         </h4>
       </div>
 
@@ -56,17 +55,17 @@ export default function Section({ title, data, filterSource, type }) {
         <CircularProgress />
       ) : (
         <div className={styles.cardsWrapper}>
-          {!carouselToggle ? (
+          {carouselToggle ? (
+            <Carousel
+              data={cardsToRender}
+              renderComponent={(data) => <Card data={data} type={type} />}
+            />
+          ) : (
             <div className={styles.wrapper}>
               {cardsToRender.map((ele) => (
                 <Card data={ele} type={type} />
               ))}
             </div>
-          ) : (
-            <Carousel
-              data={cardsToRender}
-              renderComponent={(data) => <Card data={data} type={type} />}
-            />
           )}
         </div>
       )}
