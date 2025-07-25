@@ -36,9 +36,11 @@ export default function Section({ title, data, filterSource, type }) {
       <div className={styles.header}>
         <h3>{title}</h3>
 
-        <h4 className={styles.toggleText} onClick={handleToggle}>
-          {carouselToggle ? "Show all" : "Collapse"}
-        </h4>
+        {type === "album" && (
+          <h4 className={styles.toggleText} onClick={handleToggle}>
+            {carouselToggle ? "Show all" : "Collapse"}
+          </h4>
+        )}
       </div>
 
       {showFilters && (
