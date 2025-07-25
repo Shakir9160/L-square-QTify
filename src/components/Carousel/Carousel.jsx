@@ -1,9 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
-import { useSwiper } from "swiper/react";
-import styles from "./Carousel.module.css";
+import { useEffect } from "react";
 import "swiper/css";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import styles from "./Carousel.module.css";
 import CarouselLeftNavigation from "./CarouselLeftNavigation/CarouselLeftNavigation";
 import CarouselRightNavigation from "./CarouselRightNavigation/CarouselRightNavigation";
 
@@ -21,7 +20,7 @@ function Carousel({ data, renderComponent }) {
   return (
     <div className={styles.wrapper}>
       <Swiper
-        style={{ padding: "0px 20px" }}
+        style={{ padding: "0px 15px", marginRight: "-10px" }}
         initialSlide={0}
         modules={[Navigation]}
         slidesPerView={"auto"}
