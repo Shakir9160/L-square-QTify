@@ -26,6 +26,7 @@ function Carousel({ data, renderComponent }) {
         slidesPerView={"auto"}
         spaceBetween={40}
         allowTouchMove
+        speed={300}
       >
         <Controls data={data} />
 
@@ -35,7 +36,7 @@ function Carousel({ data, renderComponent }) {
         </div>
 
         {data.map((ele) => (
-          <SwiperSlide>{renderComponent(ele)}</SwiperSlide>
+          <SwiperSlide key={ele.id}>{renderComponent(ele)}</SwiperSlide>
         ))}
       </Swiper>
     </div>

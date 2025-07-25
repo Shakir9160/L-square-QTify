@@ -1,5 +1,6 @@
 .wrapper {
   width: 160px;
+  cursor: default;
 }
 
 .card {

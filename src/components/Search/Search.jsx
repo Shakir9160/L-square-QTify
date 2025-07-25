@@ -64,6 +64,7 @@ function Search({ searchData, placeholder }) {
     <div style={{ position: "relative" }}>
       <form
         className={styles.wrapper}
+        onClick={(e) => e.stopPropagation()}
         onSubmit={(e) => {
           onSubmit(e, value);
         }}
@@ -97,6 +98,7 @@ function Search({ searchData, placeholder }) {
             return (
               <li
                 className={styles.listElement}
+                onClick={(e) => e.stopPropagation()}
                 {...getOptionProps({ option, index })}
               >
                 <div>
