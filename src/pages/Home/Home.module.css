@@ -2,5 +2,19 @@
   padding: 0px 30px 60px 30px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+}
+
+.wrapper hr {
+  margin: 45px -30px;
+  background-color: var(--color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 0px 15px 40px 15px;
+  }
+
+  .wrapper hr {
+    margin: 30px -15px;
+  }
 }
