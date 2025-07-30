@@ -1,23 +1,26 @@
-import React from "react";
+import { Box, Grid, Typography } from "@mui/material";
+import headphonesImg from "../../assets/hero_headphones.png";
 import styles from "./Hero.module.css";
 
 function Hero() {
   return (
-    <div className={styles.hero}>
-      <div>
-        <h1>100 Thousand Songs, ad-free</h1>
+    <Box className={styles.hero}>
+      <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid item xs={12} md={6} className={styles.heroText}>
+          <Typography variant="h4" component="h1">
+            100 Thousand Songs, ad-free
+          </Typography>
 
-        <h1>Over thousands podcast episodes</h1>
-      </div>
+          <Typography variant="h4" component="h1">
+            Over thousands podcast episodes
+          </Typography>
+        </Grid>
 
-      <div>
-        <img
-          src={require("../../assets/hero_headphones.png")}
-          width={212}
-          alt="headphones"
-        />
-      </div>
-    </div>
+        <Grid item xs={12} md={4} className={styles.heroImage}>
+          <img src={headphonesImg} width="100%" alt="headphones" />
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 

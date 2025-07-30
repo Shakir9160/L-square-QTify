@@ -1,9 +1,19 @@
 .hero {
   background-color: var(--color-black);
-  height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem 1rem;
   text-align: center;
-  gap: 30px;
+}
+
+.heroText h1 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.heroImage img {
+  max-width: 212px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
