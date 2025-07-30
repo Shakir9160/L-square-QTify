@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
 import styles from "./Filters.module.css";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+//   return (
+//     <div
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`simple-tabpanel-${index}`}
+//       aria-labelledby={`simple-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && (
+//         <Box sx={{ p: 3 }}>
+//           <Typography>{children}</Typography>
+//         </Box>
+//       )}
+//     </div>
+//   );
+// }
 
 function Filters({ filters, selectedFilterIndex, setSelectedFilterIndex }) {
   const handleChange = (event, newValue) => {
@@ -38,7 +35,7 @@ function Filters({ filters, selectedFilterIndex, setSelectedFilterIndex }) {
   }
 
   return (
-    <div>
+    <div style={{ overflowX: "auto", scrollbarWidth: "none" }}>
       <Tabs
         value={selectedFilterIndex}
         onChange={handleChange}
@@ -48,9 +45,16 @@ function Filters({ filters, selectedFilterIndex, setSelectedFilterIndex }) {
             backgroundColor: "var(--color-primary)",
           },
         }}
+        variant="scrollable"
+        scrollButtons="auto"
       >
         {filters.map((ele, idx) => (
-          <Tab className={styles.tab} label={ele.label} {...a11yProps(idx)} />
+          <Tab
+            key={idx}
+            className={styles.tab}
+            label={ele.label}
+            {...a11yProps(idx)}
+          />
         ))}
       </Tabs>
     </div>
