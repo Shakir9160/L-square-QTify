@@ -1,3 +1,4 @@
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/album/:albumId",
+        path: "/album/:id",
         element: <Album />,
       },
     ],
@@ -27,7 +28,16 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SnackbarProvider
+      maxSnack={1}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "center",
+      }}
+      preventDuplicate
+    >
+      <RouterProvider router={router} />
+    </SnackbarProvider>
   </React.StrictMode>
 );
 
