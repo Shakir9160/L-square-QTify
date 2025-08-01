@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { fetchFilters } from "../../api/api";
 import FAQs from "../../components/FAQs/FAQs";
 import Hero from "../../components/Hero/Hero";
+import Music from "../../components/Music/Music";
 import Section from "../../components/Section/Section";
 import styles from "./Home.module.css";
 
@@ -37,6 +38,8 @@ export default function Home() {
           {faqs && <FAQs faqs={faqs} />}
         </Stack>
       </div>
+
+      <Music />
     </>
   );
 }

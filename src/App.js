@@ -9,9 +9,11 @@ import {
 } from "./api/api";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import { MusicContext } from "./context/MusicContext";
 
 function App() {
   const [data, setData] = useState({});
+  const [selectedSong, setSelectedSong] = useState(null);
 
   const generateData = (key, source) => {
     source().then((data) => {
@@ -34,8 +36,10 @@ function App() {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Navbar searchData={[...topAlbums, ...newAlbums]} />
-        <Outlet context={{ data: { topAlbums, newAlbums, songs, faqs } }} />
+        <MusicContext.Provider value={{ selectedSong, setSelectedSong }}>
+          <Navbar searchData={[...topAlbums, ...newAlbums]} />
+          <Outlet context={{ data: { topAlbums, newAlbums, songs, faqs } }} />
+        </MusicContext.Provider>
       </StyledEngineProvider>
     </>
   );
