@@ -1,0 +1,146 @@
+.bar {
+  height: 15vh;
+  border-top: 2px solid grey;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--color-black);
+  z-index: 3000;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.info {
+  flex: 1 1 200px;
+  padding-left: 2%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.info img {
+  width: 8vh;
+  height: 8vh;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.artist {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.playArea {
+  flex: 2 1 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.5rem;
+  margin-right: 15%;
+}
+
+.musicButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* #music-button:hover {
+  background-color: black;
+} */
+
+/* .playArea button svg {
+  color: white;
+} */
+
+/* .playArea > div {
+  width: 60%;
+}
+
+.playArea > div > span {
+  background-color: white;
+}
+
+.playArea > div > span > span {
+  background-color: var(--color-primary);
+} */
+
+.icon {
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+
+.progressBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 90%;
+}
+
+.progress {
+  flex-grow: 1;
+  height: 6px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress > span {
+  border-radius: 10px;
+  background-color: var(--color-primary);
+}
+
+.time {
+  color: white;
+  font-size: 12px;
+  width: 40px;
+  text-align: center;
+}
+
+@media (max-width: 780px) {
+  .playArea {
+    margin-right: 0;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .bar {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    min-height: 20vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .info {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .playArea {
+    gap: 5px;
+    width: 100%;
+    margin-right: 0;
+    flex-direction: row;
+  }
+
+  .time {
+    font-size: 10px;
+    width: 30px;
+  }
+
+  .progressBox {
+    width: 100%;
+  }
+}
